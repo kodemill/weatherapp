@@ -1,11 +1,19 @@
-WeatherApp Server
-=================
+WeatherApp
+==========
+
 ## Used technologies
-* babel for transpiling es7/6
-* koa 2 for Promise based middleware awesomeness
-* mongoose ORM
-* JWT for stateless api
-* passport.js to ease authentication w/ Github and Facebook
+* server
+  * koa 2 for Promise based middleware awesomeness
+  * mongoose
+  * JWT for stateless api
+  * passport.js to ease authentication w/ Github and Facebook
+* client
+  * react
+  * redux
+  * sass
+  * material-ui
+  * leaflet, moment
+  * webpack
 
 ## Requirements
 * `node v6` min
@@ -15,7 +23,6 @@ WeatherApp Server
   * OpenWeatherMap API key
   * secret for JWT
   * email/pass for sending emails (gmail)
-* and of course an SPA client
 
 ### Install
 `npm i`
