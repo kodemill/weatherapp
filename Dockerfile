@@ -20,4 +20,4 @@ RUN chown -R weahterapp:weatherapp $HOME/*
 
 USER weatherapp
 
-CMD ["npm", "start"]
+CMD ["node", "dist"]

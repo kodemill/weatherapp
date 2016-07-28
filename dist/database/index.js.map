@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/database/index.js"],"names":[],"mappings":";;;;;;AAAA;;;;AACA;;;;;;;;oCAEe,aAAY;AACzB,QAAM,wBAAN;AACA,QAAM,+BAAN;AACD,C","file":"index.js","sourcesContent":["import connect from './connect';\r\nimport importCityList from './import-city-list';\r\n\r\nexport default async () => {\r\n  await connect();\r\n  await importCityList();\r\n};\r\n"]}

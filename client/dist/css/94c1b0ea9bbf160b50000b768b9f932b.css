@@ -1,0 +1,1 @@
+#mapContainer{margin:0 auto;width:95%;height:444px;transition:max-height .45s cubic-bezier(.23,1,.32,1);overflow:hidden;outline-width:0}#mapContainer.visible{max-height:445px}#mapContainer.hidden{max-height:0}#mapContainer .leaflet-control-attribution{font-size:.6em}#mapContainer .info{position:relative;top:10px;left:10px;max-width:95%;z-index:2000;padding:10px}

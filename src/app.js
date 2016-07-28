@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(serveIndex(config.app.publicFolder));
 // serve pub files
 // console.log(`serving /${config.app.publicPath} from directory ${config.app.publicFolder}`)
-app.use(mount(`/${config.app.publicPath}`, serve(config.app.publicFolder)));
+app.use(mount(`${config.app.publicPath}`, serve(config.app.publicFolder)));
 
 // routes
 app.use(routes());
