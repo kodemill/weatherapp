@@ -1,0 +1,36 @@
+.settings {
+  .emailList {
+    display: flex;
+    flex-direction: column;
+    .emailListItem {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      .rowItem {
+        margin-right: 13px;
+      }
+      .checkbox {
+        flex: 0 1 auto;
+        // margin-right: 13px;
+      }
+      .email {
+        flex: 1 1 auto;
+        // margin-right: 13px;
+      }
+    }
+    .addNewButton {
+      margin-top: 16px;
+    }
+  }
+  .actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    .actionButton {
+      flex: 1 1 auto;
+    }
+  }
+}

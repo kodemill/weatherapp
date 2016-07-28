@@ -1,0 +1,17 @@
+@import "../mixin/media";
+
+div#app {
+  .layout {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    .content {
+      @include mediaSmall {
+        padding: 12px 15px;
+      }
+      @include mediaLarge {
+        padding: 28px 36px;
+      }
+    }
+  }
+}

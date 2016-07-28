@@ -1,0 +1,51 @@
+@import '../palette';
+
+$minIconSize: 3em;
+$maxIconSize: 2.6em;
+$minIconHMargin: 19px;
+$maxIconHMargin: 19px;
+$iconColor: $secondary-text-color;
+
+@mixin floatLeft() {
+  float: left;
+}
+
+.temperatureSlider {
+  // width: 100%;
+  text-align: center;
+  .currentTemperature {
+    margin-top: 19px;
+    .temperature {
+      font-size: 4em;
+      vertical-align: top;
+    }
+    .celsiusDegree {
+      font-size: 2.7em;
+      color: $iconColor;
+    }
+  }
+  .sliderWrapper {
+    overflow: auto;
+    .intervalIcon {
+      color: $iconColor;
+    }
+    .slider {
+      @include floatLeft;
+      width: calc(100% - #{$minIconSize + $maxIconSize}
+        - #{$minIconHMargin + $maxIconHMargin });
+    }
+    .minIcon {
+      @include floatLeft;
+      clear: left;
+      font-size: $minIconSize;
+      margin-top: 10px;
+      margin-right: $minIconHMargin;
+    }
+    .maxIcon {
+      @include floatLeft;
+      font-size: $maxIconSize;
+      margin-top: 12px;
+      margin-left: $maxIconHMargin;
+    }
+  }
+}

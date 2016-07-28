@@ -1,0 +1,22 @@
+@import './palette';
+
+body {
+  div#splashScreen {
+    div.splashWrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .la-pacman {
+        color: $accent-color;
+        z-index: 111;
+      @for $i from 3 to 7 {
+        div:nth-child(#{$i}) {
+           color: $primary-text-color;
+           z-index: 100;
+        }
+      }
+      }
+    }
+  }
+}

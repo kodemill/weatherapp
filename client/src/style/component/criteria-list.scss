@@ -1,0 +1,140 @@
+@import "../palette";
+
+$small-text-font: 0.54em;
+$temperature-font: 1.3em;
+
+.criteriaListWrapper {
+  .noResultItem {
+    width: 100%;
+    display: flex;
+    min-height: 55px;
+    align-items: center;
+    padding: 5px 0 10px 10px;
+    .noResultIcon {
+      flex: 0 1 auto;
+      margin: 6px;
+    }
+    .noResultText {
+      flex: 1 1 auto;
+    }
+  }
+  .filterBar {
+    .filterTitle {
+      margin-bottom: 7px;
+      font-size: 1.1em;
+    }
+    .filterRadioContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 7px;
+      .filterRadio {
+        margin-right: 12px;
+      }
+    }
+  }
+  .criteriaList {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 22px;
+    padding-top: 10px;
+    .criteriaListItem {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      .mainInfo {
+        flex: 0 0 100%;
+        min-height: 144px;
+        padding: 17px 14px 17px 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 40px;
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.0980392)
+        }
+        .fulfilledAt {
+          margin-left: auto;
+        }
+        .temperature {
+          flex: 0 0 auto;
+          text-align: center;
+          font-size: $temperature-font;
+          color: $secondary-text-color;
+          .predicate {
+            font-size: $small-text-font;
+          }
+          .predicateLabel {
+            font-size: $small-text-font;
+          }
+        }
+        .location {
+          // text-align: center;
+          flex: 1 1 auto;
+          margin-left: 10px;
+          font-size: 1.3em;
+          .name {
+            color: $primary-text-color;
+          }
+          .country {
+            font-size: 0.64em;
+            color: $secondary-text-color;
+          }
+        }
+        .rightContainer {
+          flex: 0 1 auto;
+          margin-left: auto;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          .latestTemperature {
+            text-align: center;
+            font-size: $temperature-font;
+            color: $secondary-text-color;
+            .latestTemperatureLabel{
+              font-size: $small-text-font;
+            }
+            .createdAt {
+              font-size: $small-text-font;
+            }
+          }
+          .deleteIcon {
+            // flex: 0 1 auto;
+            // cursor: pointer;
+          }
+        }
+      }
+
+      .moreInfo {
+        overflow: hidden;
+        flex: 0 0 100%;
+        display: flex;
+        flex-direction: column;
+        max-height: 0;
+        transition: max-height 450ms cubic-bezier(0.23, 1, 0.32, 1);
+        &.open {
+          max-height: 95px;
+        }
+        .infoRow {
+          flex: 0 0 100%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin: 5px 15px 5px 85px;
+          border-bottom: 1px solid $divider-color;
+          .infoKey {
+            flex: 0 1 auto;
+          }
+          .infoValue {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}
