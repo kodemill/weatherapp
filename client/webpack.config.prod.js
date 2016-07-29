@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const srcRoot = path.resolve(__dirname, 'src');
 const outRoot = path.resolve(__dirname, 'dist');
@@ -27,15 +28,15 @@ module.exports = {
       test: /\.css$/,
       include: [srcRoot],
       loaders: [
-        'style-loader/url',
-        'file?name=css/[hash].css!extract',
+        'style-loader',
+        // 'file?name=css/[hash].css', // !extract',
         'css-loader'],
     }, {
       test: /\.scss$/,
       include: [srcRoot],
       loaders: [
-        'style-loader/url',
-        'file?name=css/[hash].css!extract',
+        'style-loader',
+        // 'file?name=css/[hash].css', // !extract',
         'css-loader',
         'sass-loader'],
     }, {
@@ -54,6 +55,7 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
+    // new ExtractTextPlugin('[contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin('js/[hash].js'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),

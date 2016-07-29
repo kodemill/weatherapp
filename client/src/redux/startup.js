@@ -2,7 +2,7 @@ import { acquireToken } from './module/auth';
 import { getRecentlyUpdated, getNotifications, getPendingCriteria } from './module/criteria';
 import { getReports } from './module/report';
 
-const pollInterval = 0.5 * 60 * 1000;
+const pollInterval = 2 * 60 * 1000;
 
 const poll = async dispatch => {
   await dispatch(getRecentlyUpdated());

@@ -52,7 +52,9 @@ const app = new _koa2.default();
 
 // error handling and dev logger
 app.use((0, _middleware.handleError)());
-app.use((0, _koaLogger2.default)());
+if (!_config2.default.isProduction) {
+  app.use((0, _koaLogger2.default)());
+}
 
 // cors headers
 app.use((0, _kcors2.default)());
