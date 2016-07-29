@@ -23,12 +23,9 @@ const notificateUsers = (() => {
         return criterion.city.id === report.city.toString();
       })];
     });
-    // console.log(criteriaReportPairs);
-    const sentMailInfos = yield Promise.all(criteriaReportPairs.map(function (pair) {
+    yield Promise.all(criteriaReportPairs.map(function (pair) {
       return (0, _sendEmail.sendNotificationEmail)(pair[0], pair[1]);
     }));
-
-    console.log(sentMailInfos);
   });
 
   return function notificateUsers(_x, _x2) {

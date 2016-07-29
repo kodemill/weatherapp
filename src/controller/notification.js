@@ -10,11 +10,8 @@ const notificateUsers = async (fulfilledCriteria, reports) => {
   const criteriaReportPairs = criteria.filter(criterion => criterion.user.getNotificationEmails())
     .map(criterion =>
       [criterion, reports.find(report => criterion.city.id === report.city.toString())]);
-  // console.log(criteriaReportPairs);
-  const sentMailInfos = await Promise.all(criteriaReportPairs
+  await Promise.all(criteriaReportPairs
     .map(pair => sendNotificationEmail(pair[0], pair[1])));
-
-  console.log(sentMailInfos);
 };
 
 

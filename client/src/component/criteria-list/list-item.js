@@ -8,7 +8,7 @@ const NoResultItem = (
   <div className="noResultItem" key={1337}>
     <NoResultIcon className="noResultIcon" />
     <div className="noResultText">
-      No criteria matches the selected filters.
+      No criteria matches the selected filter.
     </div>
   </div>
 );

@@ -6,11 +6,15 @@ import * as notificationActionCreators from '../redux/module/component/notificat
 import { acknoweledgeNotification } from '../redux/module/criteria';
 import _ from 'lodash';
 
-const mapStateToProps = state => ({
-  notifications: state.criteria.notifications,
-  popupOpen: state.notification.popupOpen,
-  notificateViaNative: state.settings.notificateViaNative,
-});
+const mapStateToProps = state => {
+  const { notificateViaNative, notificateViaPopup } = state.settings.options;
+  return {
+    notifications: state.criteria.notifications,
+    popupOpen: state.notification.popupOpen,
+    notificateViaNative,
+    notificateViaPopup,
+  };
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...notificationActionCreators,
@@ -25,13 +29,15 @@ export default class NotificationController extends Component {
     openNotificationPopup: PropTypes.func.isRequired,
     displayNativeNotification: PropTypes.func.isRequired,
     requestNativeNotificationPermission: PropTypes.func.isRequired,
+    notificateViaPopup: PropTypes.bool,
+    notificateViaNative: PropTypes.bool,
   }
 
   componentWillReceiveProps(nextProps) {
-    const diff = _.differenceBy(nextProps.notifications, this.props.notifications);
+    const diff = _.differenceBy(nextProps.notifications, this.props.notifications, 'id');
     if (diff.length > 0) {
       if (nextProps.notificateViaPopup) {
-        this.props.openNotificationPopup();
+        nextProps.openNotificationPopup();
       }
       if (nextProps.notificateViaNative) {
         diff.forEach(criteria => this.displayNotification(criteria));

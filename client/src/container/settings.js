@@ -15,6 +15,7 @@ const mapStateToProps = state => {
     facebookConnected: !!facebookId,
     connectGithubUrl: connectGithub.url(token),
     connectFacebookUrl: connectFacebook.url(token),
+    isFetching: state.auth.fetching,
     ...state.settings,
   };
 };

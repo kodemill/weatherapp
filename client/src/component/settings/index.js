@@ -59,43 +59,45 @@ const Settings = props => {
       </CardText>
       <CardTitle title="Emails" style={{ paddingBottom: 0 }} />
       <CardText>
-        <p>When you add a new email, you still have to verify that the address belongs to you.
-        So that we can send notifications.
-        Check your spam folder if you can't find it.</p>
+        <p>After you add a new address you'll have to prove that it's yours.
+        In order to do that just click on the link in the email we send you in a minute.
+          Check your spam folder if you can't find it.<br />
+        Emails we get from social providers are automatically trusted.
+        </p>
         <EmailList
           {...props}
         />
       </CardText>
       <CardTitle title="Social providers" style={{ paddingBottom: 0 }} />
       <CardText>
-        <p>If you wish to use this app from other devices,
-        make sure you connect via social providers.</p>
-        <p>We will only get your email and public information!</p>
+        <p>If you want to use this app from other devices,
+          make sure you connect via social providers.
+        </p>
       </CardText>
       <CardText className="actions">
-        <FlatButton
+        <RaisedButton
           style={{ margin: '5px' }} className="actionButton"
           href={props.connectGithubUrl}
           label={getSocialButtonText(props, 'github')}
           labelPosition="before"
           primary
           icon={<FontIcon className="icon-github-squared" />}
-          disabled={props.githubConnected}
+          disabled={props.isFetching || editing || props.githubConnected}
         />
-        <FlatButton
+        <RaisedButton
           style={{ margin: '5px' }} className="actionButton"
           href={props.connectFacebookUrl}
           label={getSocialButtonText(props, 'facebook')}
           labelPosition="before"
           primary
           icon={<FontIcon className="icon-facebook-squared" />}
-          disabled={props.facebookConnected}
+          disabled={props.isFetching || editing || props.facebookConnected}
         />
       </CardText>
       <CardActions className="actions">
         <FlatButton
           style={{ margin: '5px' }} className="actionButton"
-          onClick={props.discardChanges} disabled={editing || !props.changed}
+          onClick={props.discardChanges} disabled={props.isFetching || editing || !props.changed}
           label="discard changes"
         />
         <RaisedButton
@@ -104,7 +106,7 @@ const Settings = props => {
             saveStarted = true;
             props.saveUser();
           }} className="actionButton"
-          disabled={editing || !props.changed} label="save changes" primary
+          disabled={props.isFetching || editing || !props.changed} label="save changes" primary
         />
       </CardActions>
     </Card>
@@ -125,6 +127,7 @@ Settings.propTypes = {
   popupNotificationChange: PropTypes.func.isRequired,
   discardChanges: PropTypes.func.isRequired,
   saveUser: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool,
 };
 
 export default Settings;
