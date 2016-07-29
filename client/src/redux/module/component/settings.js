@@ -51,8 +51,9 @@ const normalizeEmail = email => {
 };
 
 const normalizeOptions = options => {
-  const { notificateViaNative = false, notificateViaEmail = false } = options;
-  return { notificateViaEmail, notificateViaNative };
+  const { notificateViaNative = false, notificateViaEmail = false,
+    notificateViaPopup = false } = options;
+  return { notificateViaEmail, notificateViaNative, notificateViaPopup };
 };
 
 const normalizeOriginalObject = original => {
