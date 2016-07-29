@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ silent: true });
 const path = require('path');
 // const uuid = require('uuid');
 
@@ -42,3 +42,5 @@ config.email = {
 };
 
 config.isProduction = process.env.NODE_ENV === 'production';
+
+console.log(JSON.stringify(config, null, 2));
