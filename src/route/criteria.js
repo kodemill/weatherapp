@@ -42,10 +42,13 @@ export default router => {
     ctx.body = await WeatherCriteriaController
       .getAllFulfilledNotAcknoweledgedForUser(ctx.user);
   });
-  const acknoweledgeCriteria = async ctx => {
+  router.post('/criteria/acknoweledge/:criteriaIds', async ctx => {
     ctx.body = await WeatherCriteriaController
       .acknoweledgeAllForUser(ctx.user, ctx.params.criteriaIds.split(','));
-  };
-  router.post('/criteria/acknoweledge/:criteriaIds', acknoweledgeCriteria);
-  router.get('/criteria/acknoweledge/:criteriaIds', acknoweledgeCriteria);
+  });
+  router.get('/criteria/acknoweledge/:criteriaIds', async ctx => {
+    await WeatherCriteriaController
+      .acknoweledgeAllForUser(ctx.user, ctx.params.criteriaIds.split(','));
+    ctx.redirect('/list');
+  });
 };
