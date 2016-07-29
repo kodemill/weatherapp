@@ -14,7 +14,9 @@ const app = new Koa();
 
 // error handling and dev logger
 app.use(handleError());
-app.use(logger());
+if (!config.isProduction) {
+  app.use(logger());
+}
 
 // cors headers
 app.use(cors());
