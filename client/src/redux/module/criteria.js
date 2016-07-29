@@ -20,7 +20,7 @@ const FILTER_FULFILLED = 'FILTER_FULFILLED';
 const FILTER_PENDING = 'FILTER_PENDING';
 const FILTER_NOTIFICATIONS = 'FILTER_NOTIFICATIONS';
 
-const minTimeoutBetweenRequests = 1000 * 60 * 2;
+export const minTimeoutBetweenRequests = 1000 * 60 * 0.1;
 
 const getCriteria = filter => (dispatch, getState) => {
   const { successfulFetchAt, gotAllPending, gotAllFulfilled } = getState().criteria;
