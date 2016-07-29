@@ -24,6 +24,7 @@ exports.default = publicFolder => {
       const splitOriginalUrl = ctx.originalUrl.split('/');
       if (splitOriginalUrl.length === 3 && splitOriginalUrl[1] === 'user') {
         console.log('serveIndex - authenticated index served');
+        ctx.url = '/settings';
         ctx.body = indexHtmlTemplate(splitOriginalUrl[2]);
       } else {
         return next();

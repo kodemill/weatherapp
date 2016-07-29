@@ -100,16 +100,24 @@ exports.default = router => {
       return _ref8.apply(this, arguments);
     };
   })());
-  const acknoweledgeCriteria = (() => {
+  router.post('/criteria/acknoweledge/:criteriaIds', (() => {
     var _ref9 = _asyncToGenerator(function* (ctx) {
       ctx.body = yield _weatherCriteria2.default.acknoweledgeAllForUser(ctx.user, ctx.params.criteriaIds.split(','));
     });
 
-    return function acknoweledgeCriteria(_x9) {
+    return function (_x9) {
       return _ref9.apply(this, arguments);
     };
-  })();
-  router.post('/criteria/acknoweledge/:criteriaIds', acknoweledgeCriteria);
-  router.get('/criteria/acknoweledge/:criteriaIds', acknoweledgeCriteria);
+  })());
+  router.get('/criteria/acknoweledge/:criteriaIds', (() => {
+    var _ref10 = _asyncToGenerator(function* (ctx) {
+      yield _weatherCriteria2.default.acknoweledgeAllForUser(ctx.user, ctx.params.criteriaIds.split(','));
+      ctx.redirect('/list');
+    });
+
+    return function (_x10) {
+      return _ref10.apply(this, arguments);
+    };
+  })());
 };
 //# sourceMappingURL=criteria.js.map
